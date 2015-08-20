@@ -1,0 +1,5 @@
+<%= form_for(current_user.active_relationships.find_by(followed_id: @club.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+    <input src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/heart-128.png" type="image" id ="favorite_image">
+<% end %>

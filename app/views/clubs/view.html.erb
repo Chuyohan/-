@@ -1,0 +1,106 @@
+<div class = "container">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	  
+	  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+	    <li data-target="#myCarousel" class="active"></li>
+	    
+	    <% @albums.each do |i| %>
+	    	<li data-target="#myCarousel"></li>
+	    <% end %>
+	  </ol>
+
+
+	  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+		      <!-- 나중에 이미지 대신 DB 넣어줄 곳-->
+			    <div id = "center">
+			    	<%= image_tag @club.picture.url if @club.picture? %>
+			    </div>
+		    </div>
+		
+		<% @albums.each do |i| %>
+		    <div class = "item">
+		    	<div id = "center">
+					<%= image_tag i.image_url :size => "750x500"  %>
+				</div>
+			</div>
+		<% end %>
+	  </div>
+
+
+	  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+</div>
+
+<br>
+
+<div class = "container" id = "club_view_bottom">
+	<div class = "col-lg-12">
+		<div class="list-group">
+			<div class="list-group-item" id ="club_view_bottom_box">
+				<table class="table">
+				    <thead>
+				      <tr>
+				        <th id = "club_name_th"><font size = "11"><%= @club.name %></font> <br> <font size = "5"> <%= @club.category %> 동아리 </font> 
+					       
+					        <% if (user_admin?) %>
+								<a href = "/clubs/edit/<%= @club.id %>" class = "btn btn-primary" > Edit </a>
+								<a href = "/clubs/delete/<%= @club.id %>" class = "btn btn-default"> Delete </a>
+							<% end %>
+
+						</th>
+				        <th id = "favorite_th"><%= render 'follow_form'  %></th>
+				      </tr>
+				    </thead>
+				</table>
+
+				<tr class = "col-lg-12">
+					<ul class = "list-group">
+					  <li class="list-group-item">
+					  <span class="glyphicon glyphicon-map-marker"> 위치 <%= @club.location %> </span>
+					  </li>
+
+					  <li class="list-group-item"> <span class = "glyphicon glyphicon-user"> 인원 <%= @club.personnel %> </span> </li> 
+
+					  <li class="list-group-item"> <span class = "glyphicon glyphicon-phone"> 연락처 <%= @club.phone %> </span> </li>
+					</ul>
+				</tr>
+
+				<tr class = "col-lg-12">
+					<ul class="nav nav-tabs">
+					  <li class="active">
+						  <a href="#home" data-toggle="tab" aria-expanded="true">
+						 	<span class="glyphicon glyphicon-info-sign"> 소개</span>
+						  </a>
+					  </li>
+					  <li class="">
+						  <a href="#profile" data-toggle="tab" aria-expanded="false">
+						  	<span class = "glyphicon glyphicon-list-alt"> 이력</span>
+						  </a>
+					  </li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+					  <div class="tab-pane fade active in" id="home">
+					    <div class = "container"><%= @club.intro %></div>
+					  </div>
+					  <div class="tab-pane fade" id="profile">
+					    <div class = "container"><%= @club.history %></div>
+					  </div>
+					</div>
+					<br>				
+				</tr>
+
+			</div>
+				
+		</div>
+	</div>
+</div>
+

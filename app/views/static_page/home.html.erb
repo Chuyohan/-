@@ -1,0 +1,70 @@
+<% if current_user %>
+	<!-- 로그인 했으면 all_show로 이동(컨트롤러) -->	
+<% else %>
+	<% flash.each do |message_type, message| %>
+		<div class="alert alert-<%= message_type %> center"><%= message %></div>
+	<% end %>
+	<br>
+	<h1 id ="center"><strong> Introduce Club in Sejong University. </strong></h1>
+
+	<!-- 로그인 구간 -->
+	<div class="jumbotron" id = "login">
+		<div class = "container">
+		  <div class="col-xs-4 col-xs-offset-8">
+		  
+		    <%= form_for(:session, url: login_path) do |f| %>
+
+		      <div class = "form-group">
+		      <%= f.label :이메일 %>
+		      <%= f.email_field :email, class: 'form-control', placeholder: "email@example.com" %>
+		      </div>
+
+		      <div class = "form-group">
+		      <%= f.label :비밀번호 %>
+		      <%= f.password_field :password, class: 'form-control', placeholder: "비밀번호" %>
+		      </div>
+
+		      <%= f.submit "로 그 인", class: "col-xs-6 btn btn-primary" %>
+		    <% end %>
+
+		    <%= link_to "회원가입", signup_path, class: "col-xs-6 btn btn-default"%>
+
+		    <%= link_to "페이스북 로그인", "/auth/facebook", class: "col-xs-12 btn btn-info",id: "sign_in"  %>
+		  </div>
+		</div>
+	</div>
+
+	<!-- 개발자 소개하는 구간 -->
+		<div id = "develop_intro" >
+			<h3><strong> Sejong Club Homepage Developer </strong></h3>
+			<hr class = "featurette-divider">
+				<div class = "col-xs-4 col" id = "intro1">
+					<div class ="thumbnail">
+						<div class="circular"></div>
+						<h2> FatDog Club </h2>
+						<p> one of Fatdog member </p>
+					</div>
+				</div>
+
+				<div class = "col-xs-4" id = "intro2">
+					<div class ="thumbnail">
+						<div class="circular"></div>
+						<h2> 김 동 섭 </h2>
+						<p> one of Fatdog member </p>
+					</div>
+				</div>
+
+				<div class = "col-xs-4" id = "intro3">
+					<div class ="thumbnail">
+						<div class="circular"></div>
+						<h2> 추 요 한 </h2>
+						<p> one of Fatdog member </p>
+					</div>
+				</div>
+			</div>
+ 
+<script type="text/javascript"> 
+	$.blockUI({messages:"Now Loading..."});
+</script>		
+<% end %>
+

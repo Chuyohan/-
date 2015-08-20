@@ -1,0 +1,69 @@
+ <div class="row", id = "club_new">
+   <div class = "container", id = "apply_form">
+    <div class="col-md-8 col-md-offset-2">
+    <div id = "center">
+      <h3> 동아리 등록하기 </h3>
+    </div>
+     <hr>
+      <%= form_for(@club, html: { multipart: true } , layout: :horizontal) do |f| %>
+
+        <%= render 'shared/club_error_messages' %>
+
+        <%= f.label :name, "동아리명" %>      
+        <%= f.text_field :name, class: 'form-control' %>
+
+        <br>
+        <div class = "col-md-6" style = "padding-left: 0px; padding-right: 0px">
+          <%= f.label :category, "카테고리" %>
+          <%= f.select :category, [['연극', '연극'], ['문화', '문화'], ['체육', '체육'], ['학술', '학술'], ['봉사', '봉사'], ['종교', '종교']] , class: 'form-control'%>
+        </div>
+
+        <div class = "col-md-6" style = "padding-left: 0px; padding-right: 0px">
+          <%= f.label :personnel, "인원" %>
+          <%= f.select :personnel, [['1~10명', "1~10명"], ['11~20명', '11~20명'], ['20명 이상', '20명 이상']], class: 'form-control' %>
+        </div>
+
+        <br><br>
+
+        <div id = "apply_form_margin">
+        <%= f.label :intro, "소개" %>
+        <%= f.text_area :intro, class: 'form-control' %>
+        </div>
+
+        <div id = "apply_form_margin">
+        <%= f.label :location, "위치" %>
+        <%= f.text_field :location, class: 'form-control' %>
+        </div>
+
+        <div id = "apply_form_margin">
+        <%= f.label :phone, "연락처(이메일 주소 or 핸드폰 번호 등등)" %>
+        <%= f.text_field :phone, class: 'form-control' %>
+        </div>
+
+        <div id = "apply_form_margin">
+        <%= f.label :history, "이력(수상경력 or 행사참여 등등)" %>
+        <%= f.text_area :history, class: 'form-control' %>
+        </div>
+
+        <div id = "apply_form_margin">
+        <%= f.label :picture, "대표사진(썸네일사진)" %>
+          <span class="picture">
+            <%= f.file_field :picture %>
+          </span>
+        </div>
+
+        <%= f.fields_for :albums do |a| %>
+          <div class = "field">
+            <%= a.label :image, "추가 슬라이드 사진" %><br>
+            <%= a.file_field :image, multiple: true, name: "albums[image][]" %>
+          </div>
+        <% end %>
+
+       <div id = "center">
+          <br>
+          <%= f.submit "등록하기", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

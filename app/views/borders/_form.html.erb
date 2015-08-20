@@ -1,0 +1,31 @@
+<div class = "container">
+  <%= form_for(@border) do |f| %>
+    <% if @border.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@border.errors.count, "error") %> prohibited this border from being saved:</h2>
+
+        <ul>
+        <% @border.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+      <div class="field">
+        <%= f.label :title, "제 목" %><br>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :content, "내 용" %><br>
+        <%= f.text_area :content %>
+      </div>
+    
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+  <% end %>
+</div>

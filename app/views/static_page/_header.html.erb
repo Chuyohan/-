@@ -1,0 +1,57 @@
+<nav class="navbar navbar-inverse">
+	<div class = "container-fluid" id = "header_nav_container">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="true">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	
+		<% if current_user %>
+			<div class= "nav navbar-header">
+			  <%= link_to "세종대동아리.com", all_show_path , id: "logo" %>
+			</div>
+
+			<div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-2" aria-expanded="true">
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+				        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 카테고리 <span class="caret"></span></a>
+				        <ul class="dropdown-menu" role="menu">
+				            <li><%= link_to "전체", all_show_path %></li>
+						  	<li class="divider"></li>
+						  	<li><a href="/favorite"> 즐겨찾기 </a></li>
+						    <li class="divider"></li>
+						    <li><a href="/연극"> 연 극 </a></li>
+						    <li><a href="/문화"> 문 화 </a></li>
+						    <li><a href="/체육"> 체 육 </a></li>
+						    <li><a href="/학술"> 학 술 </a></li>
+						    <li><a href="/봉사"> 봉 사 </a></li>
+						    <li><a href="/종교"> 종 교 </a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<div class= "nav navbar-right" id ="right_top_user">
+				    <ul class="nav navbar-nav">
+				      	<li>
+						    <% if (user_admin?) %>
+								<%= link_to "동아리 등록하기", create_path %>
+								
+				        <li><a href="#"> 신청하기 </a></li>
+				        <li><%= link_to "자유게시판", borders_path %></li>
+				        	<% end %>
+						</li>
+				        <li class="active"><%= link_to current_user.name, "#" %></li>
+				        <li><%= link_to "로그아웃", signout_path, id: "sign_out" %></li>
+				        
+				    </ul>
+				</div>
+			</div>
+
+		<% else %>
+			<div class="nav navbar-left">
+			  <%= link_to "세종대동아리.com", root_path , id: "logo" %>
+			</div>
+		<% end %>
+	</div>
+</nav>

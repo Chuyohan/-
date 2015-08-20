@@ -1,0 +1,22 @@
+find_executable: checking for gcc... -------------------- yes
+
+--------------------
+
+find_executable: checking for Magick-config... -------------------- no
+
+--------------------
+
+find_executable: checking for pkg-config... -------------------- yes
+
+--------------------
+
+configure_compile_options: checking for outdated ImageMagick version (<= 6.4.9)... -------------------- no
+
+Detected ImageMagick version: 6.7.8
+--------------------
+
+assert_minimum_ruby_version!: checking for Ruby version >= 1.8.5... -------------------- yes
+
+--------------------
+
+Can't install RMagick 2.15.3. Can't find the ImageMagick library or one of the dependent libraries. Check the mkmf.log file for more detailed information.

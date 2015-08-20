@@ -1,0 +1,28 @@
+<div class = "container" id = "club_9_cut">
+
+<% flash.each do |message_type, message| %>
+	<div class="alert alert-<%= message_type %> center"><%= message %></div>
+<% end %>
+
+	<div id = "club_list_cover">
+		<% @clubs.each do |club| %>
+			<a href = "/clubs/view/<%= club.id %>" id = "club_link_thumb">
+				<div class="col-xs-4" id = "club_thumb_of_size">
+					<div class ="thumbnail">
+						 <%= image_tag club.picture_url(:thumb) %>
+					</div>
+
+					<div class = "club_name_thumb">
+						<font size = "9"><%= club.name %></font><br>
+						<font size = "4"><%= club.category %> 동아리</font>
+					</div>
+				</div>
+			</a>
+		<% end %>
+	</div>
+</div>
+
+<div id = "paginate_center">
+	<%= will_paginate @clubs, previous_label: "<<", next_label: ">>" %>
+</div>
+

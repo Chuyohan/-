@@ -1,0 +1,4 @@
+<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :followed_id, @club.id %></div>
+  <input src="https://cdn4.iconfinder.com/data/icons/ballicons-2-free/100/heart-128.png" type="image" class = "grayscale" id ="favorite_image">
+<% end %>

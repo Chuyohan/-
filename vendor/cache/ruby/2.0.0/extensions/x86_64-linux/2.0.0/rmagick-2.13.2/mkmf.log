@@ -1,0 +1,13 @@
+checking for Ruby version >= 1.8.5... -------------------- yes
+
+--------------------
+
+find_executable: checking for gcc... -------------------- yes
+
+--------------------
+
+find_executable: checking for Magick-config... -------------------- no
+
+--------------------
+
+Can't install RMagick 2.13.2. Can't find Magick-config in /home/ec2-user/.rvm/gems/ruby-2.0.0-p643/bin:/home/ec2-user/.rvm/gems/ruby-2.0.0-p643@global/bin:/home/ec2-user/.rvm/rubies/ruby-2.0.0-p643/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/home/ec2-user/.rvm/bin:/home/ec2-user/bin

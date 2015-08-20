@@ -1,0 +1,67 @@
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".border_toggle").hide();
+  $(".border_title").click(function(){
+    $(this).find(".border_toggle").slideToggle("slow");
+  });
+});
+</script>
+
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %> center"><%= message %></div>
+<% end %>
+
+<div class = "container" id = "border_cover">
+  <div class = "col-xs-10">
+    <h1>자유 게시판</h1>
+  </div>
+  <div class = "col-xs-2" id = "border_new_write">
+    <%= link_to '글쓰기', new_border_path, class: "btn btn-default" %>
+  </div>
+
+  <table class = "table table-striped table-hover">
+    <thead>
+      <tr>
+        <th id = 'border_index_count'>번호</th>
+        <th id = 'border_index_username'>작성자</th>
+        <th id = 'border_index_title'>제 목</th>
+        <th id = "border_index_center">날 짜</th>
+        <th id = "border_index_center">조회</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% @borders.each_with_index do |border, index| %>
+        <tr class = "default">
+          <td id = 'border_index_count'><%= index + 1 %></td>
+          <td id = 'border_index_username'><%= border.user.name %></td>
+          <td id = 'border_index_title' class = "border_title">
+            <div><%= border.title %></div>
+            <div class = "border_toggle">
+            <br>
+            <%= border.content %>
+            <br><br>
+            <%= link_to 'Edit', edit_border_path(border), class: "btn btn-default" %>
+            <%= link_to 'Destroy', border, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+            </div>
+          </td>
+          
+          <td id = "border_index_date">
+            <%= border.updated_at.strftime("%Y-%m-%d") %>
+          </td>
+
+          <td id = "border_index_center"><%= border.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <br>
+
+  <div id = "paginate_center">
+    <%= will_paginate @borders, previous_label: "<<", next_label: ">>" %>
+  </div>
+
+</div>

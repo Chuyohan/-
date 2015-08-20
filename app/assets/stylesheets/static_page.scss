@@ -1,0 +1,137 @@
+// Place all the styles related to the StaticPage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+body {
+  .jumbotron{  
+  height: 450px;
+  }
+  #login {
+	background-image: image-url('SejongUni2.jpg');
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	max-width: 70%;
+	margin : auto;     
+  } 
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+  
+.center {
+  text-align: center;
+}
+
+#topheader{
+	height : 70px;
+	background-color : black;
+	border-style:hidden;
+	line-height: 50px; 
+}
+
+#footer {
+	background-color : white;
+	margin-top: 1cm;
+	height :50px;
+}
+
+#develop_intro{
+	text-align :center;
+	margin-top: 2cm;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 70%;
+}
+
+
+#intro1 {
+	.circular{
+	width: 140px;
+	height: 140px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background-image: image-url('fatdog.JPG');
+	margin :auto;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+	.thumbnail{		
+		padding-top : 1cm;
+		padding-bottom: 1cm;
+	}
+}
+
+#intro2 {
+	.circular{
+	width: 140px;
+	height: 140px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background-image: image-url('mentor.jpg');
+	margin :auto;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+	.thumbnail{		
+		padding-top : 1cm;
+		padding-bottom: 1cm;
+	}
+}
+
+#intro3 {
+	.circular{
+	width: 140px;
+	height: 140px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background-image: image-url('mentee.jpg');
+	margin :auto;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	}
+	.thumbnail{
+		padding-top : 1cm;
+		padding-bottom: 1cm;
+	}
+}
+
+#center {
+	text-align :center;
+}
+
+#paginate_center {
+	margin-top: 50px;
+	text-align :center;
+}
+
+
+
+#right_top_user {
+	line-height: 1%;
+}
+
+#static_page_body {
+	min-height: 1000px;
+	min-width: 100%;
+}
+
+#header_nav_container {
+	max-width: 85%;
+	min-width: 85%;
+}

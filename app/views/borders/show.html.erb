@@ -1,0 +1,18 @@
+<div class = "container" id = "border_cover">
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Title:</strong>
+	  <%= @border.title %>
+	</p>
+
+	<p>
+	  <strong>Content:</strong>
+	  <%= @border.content %>
+	</p>
+
+
+	<%= link_to 'Edit', edit_border_path(@border) %> |
+	<%= link_to 'Destroy', borders_path, method: :delete, data: { confirm: 'Are you sure?' } %> |
+	<%= link_to 'Back', borders_path %>
+</div>
